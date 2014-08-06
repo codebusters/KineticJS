@@ -1,9 +1,9 @@
 /*
- * KineticJS JavaScript Framework v5.0.1
+ * KineticJS JavaScript Framework v5.0.2
  * http://www.kineticjs.com/
  * Copyright 2013, Eric Rowell
  * Licensed under the MIT or GPL Version 2 licenses.
- * Date: 2014-01-21
+ * Date: 2014-08-06
  *
  * Copyright (C) 2011 - 2013 by Eric Rowell
  *
@@ -32,7 +32,7 @@ var Kinetic = {};
 (function() {
     Kinetic = {
         // public
-        version: '5.0.1',
+        version: '5.0.2',
 
         // private
         stages: [],
@@ -8741,6 +8741,10 @@ var Kinetic = {};
 
             if(content && Kinetic.Util._isInDocument(content)) {
                 this.getContainer().removeChild(content);
+            }
+            var index = Kinetic.stages.indexOf(this);
+            if (index > -1) {
+                Kinetic.stages.splice(index, 1);
             }
         },
         /**
