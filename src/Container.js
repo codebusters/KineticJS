@@ -60,6 +60,12 @@
          * @returns {Container}
          */
         add: function(child) {
+
+            if (child.getParent()) {
+                child.moveTo(this);
+                return;
+            }
+
             var children = this.children;
 
             this._validateAdd(child);
