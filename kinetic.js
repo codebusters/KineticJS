@@ -3,7 +3,7 @@
  * http://www.kineticjs.com/
  * Copyright 2013, Eric Rowell
  * Licensed under the MIT or GPL Version 2 licenses.
- * Date: 2014-08-06
+ * Date: 2014-08-11
  *
  * Copyright (C) 2011 - 2013 by Eric Rowell
  *
@@ -6860,6 +6860,12 @@ var Kinetic = {};
          * @returns {Container}
          */
         add: function(child) {
+
+            if (child.getParent()) {
+                child.moveTo(this);
+                return;
+            }
+
             var children = this.children;
 
             this._validateAdd(child);
